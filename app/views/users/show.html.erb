@@ -1,6 +1,9 @@
-<h1>Porfil de :  <%= @user.name %></h1>
-
-</b>Nom : <%= @user.nom %></b></br>
-</b>Email : <%= @user.email %></b>
-
-<%= link_to "Accueil", root_path %>
+<h1 class="headProfil">
+	Porfil de :  <%= @user.nom %> 
+	<%= gravatar_for @user %>
+</h1>
+<ul>
+	<li>Nom : <%= @user.nom %></li>
+	<li>Email : <%= @user.email %></li>
+</ul>
+<%= link_to @user.nom, @user %>

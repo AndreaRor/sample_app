@@ -1,3 +1,14 @@
+.headProfil{
+  padding : 20px;
+  background-color: gray;
+  border-radius: 15px;
+}
+
+.gravatar{
+  float: right;
+  border-radius: 15px;
+}
+
 #logo {
     width: 150px;
     height: 150px;
@@ -42,6 +53,7 @@ nav ul li a:hover {
 }
 
 .round {
+  padding-top: 2px;
   -moz-border-radius:    10px;
   -webkit-border-radius: 10px;
   border-radius:         10px;
@@ -99,7 +111,7 @@ header img {
 section {
   margin-top: 1em;
   font-size: 120%;
-  padding: 20px;
+  padding: 5px;
   background: #fff;
 }
 
