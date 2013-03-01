@@ -1,17 +1,47 @@
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
+.table{
+  margin: auto;
+}
+
+.gravatar_edit{
+  float: left;
+}
+
 .flashsuccess{
-  width: 200px;
   color: #003300;
-  background-color: green;
+  font-size: 30px;
+  background-color: #4AC246;
+  border-radius: 7px;
   text-align: center;
-  border-radius: 15px;
+  padding: 20px;
+  font-weight: bold;
 }
 
 .flasherror{
-  width: 200px;
-  color: black;
-  background-color: red;
+  color: #95000F;
+  font-size: 30px;
+  background-color: #D64857;
+  border-radius: 7px;
   text-align: center;
-  border-radius: 15px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.flashnotice{
+  color: #A77F12;
+  font-size: 30px;
+  background-color: #DDBB5F;
+  border-radius: 7px;
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
 }
 
 div.field, div.actions {
@@ -104,8 +134,9 @@ a.signup_button {
   display: block;
   text-align: center;
   width: 190px;
-  background: #006400;
-  font-size: 150%;
+  color: #879091;
+  font-size: 30px;
+  background-color: #4AC246;
   font-weight: bold;
   padding: 20px;
 }

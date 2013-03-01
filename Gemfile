@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
+#Refuse de lancer le serveur avec gem will_paginate
+#gem 'will_paginate'
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -17,6 +21,7 @@ end
 group :development do
   gem 'rspec-rails', '2.5.0'
   gem 'annotate'
+  gem 'faker', '0.3.1'
 end
 
 # Gems used only for assets and not required

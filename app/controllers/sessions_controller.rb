@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   		#flash[:success] = "Identification réussie" probleme avec l'accent
       flash[:success] = "Identification OK"
   		sign_in user
-  		redirect_to root_path
+  		redirect_back_or(root_path)
   	end
   end
 

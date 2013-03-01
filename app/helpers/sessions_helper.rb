@@ -27,6 +27,22 @@ module SessionsHelper
     redirect_to root_path
   end
 
+  def deny_access
+    store_location
+    flash[:notice] = "Connectez-vous pour avoir acces a cette section"
+    redirect_to signin_path
+    #redirect_to signin_path, :notice "Connectez-vous pour avoir accès à cette section"
+  end
+
+  def current_user?(user)
+    current_user == user
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    clear_return_to
+  end
+
   private 
 
   	def user_from_remember_token
@@ -35,5 +51,13 @@ module SessionsHelper
 
     def remember_token 									#retourne [integer, string]
       cookies.signed[:remember_token] || [nil, nil] #retourne [user.id, user.salt] si défini sinon [nil, nil]
+    end
+
+    def store_location 
+      session[:return_to] = request.fullpath
+    end
+
+    def clear_return_to
+      session[:return_to] = nil
     end
 end

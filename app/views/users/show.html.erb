@@ -6,4 +6,4 @@
 	<li>Nom : <%= @user.nom %></li>
 	<li>Email : <%= @user.email %></li>
 </ul>
-<%= link_to @user.nom, @user %>
+<%= link_to "Editer mon profil", edit_user_path(@user) %>

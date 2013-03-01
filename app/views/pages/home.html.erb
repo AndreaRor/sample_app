@@ -1,8 +1,14 @@
-<h1>Application Exemple</h1>
+<h1>Application Tutoriel</h1>
 
 <p>
   C'est la page d'accuile pour l'application exemple du
   <a href="http://railstutorial.org/">Tutoriel Ruby on Rails</a>.
 </p>
-
-<%= link_to "S'inscrire!", signup_path, :class => "signup_button round" %>
+<% if !signed_in? %>
+<table class="table">
+<tr>
+	<td><%= link_to "Se connecter!", signin_path, :class => "signup_button round" %></td>
+	<td><%= link_to "S'inscrire!", signup_path, :class => "signup_button round" %></td>
+</tr>
+</table>
+<% end %>
