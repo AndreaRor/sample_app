@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   before_save :cryptage_password
 
 
-  def verif_password?(mdp_soumis)
+  def verif_password(mdp_soumis)
   	encrypted_password == cryptage(mdp_soumis)
   end
 
@@ -40,10 +40,19 @@ class User < ActiveRecord::Base
 
   private
   	def cryptage_password
-  	  	self.encrypted_password = cryptage(password)
-  	end
+      self.salt = make_salt if new_record?
+      self.encrypted_password = cryptage(password)
+    end
   	def cryptage(string)
-  		string
+      secure_hash("#{salt}--#{string}")
   	end
+
+    def make_salt
+      secure_hash("#{Time.now.utc}--#{password}")
+    end
+
+    def secure_hash(string)
+      Digest::SHA2.hexdigest(string)
+    end
 
 end

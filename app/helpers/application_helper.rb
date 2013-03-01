@@ -1,10 +1,10 @@
 module ApplicationHelper
 	def titre
-		titre_base = "Bienvenue sur mon site"
+		titre_base = "Page"
 		if @titre.nil?
 			titre_base
 		else
-			"#{titre_base} | @titre"
+			"#{titre_base} | #{@titre}"
 		end
 	end
 

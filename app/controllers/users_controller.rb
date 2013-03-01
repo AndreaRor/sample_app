@@ -4,10 +4,9 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		flash[:success] = "Inscription reussie!"
-  		#flash[:success] = "Bienvenue dans l'Application Exemple!"
   		redirect_to user_path(@user)
   	else
-  		render 'new'
+  		render 'new'	#garde les champs déjà entré @user le remet ds le form value="dddd"
   		#redirect_to signup_path
   	end
   end
