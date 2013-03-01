@@ -6,14 +6,21 @@ class SessionsController < ApplicationController
 
   def create
   	user = User.authenticate(params[:session][:email], params[:session][:password])
-  	if user.nil?
+  	if user.nil?     #utilisateur non trouvé
   		flash.now[:error] = "Echec de l'identification"
   		@titre = "S'identifier"
   		render 'new'
-	else
-  		flash[:success] = "Identification OK"
+	else               #utilisateur trouvé
+  		#flash[:success] = "Identification réussie" probleme avec l'accent
+      flash[:success] = "Identification OK"
   		sign_in user
-  		redirect_to user
+  		redirect_to root_path
   	end
+  end
+
+  def destroy
+      flash[:success] = "Vous etes deconnecte!"
+      sign_out 
+      redirect_to root_path
   end
 end

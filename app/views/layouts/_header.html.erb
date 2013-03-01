@@ -4,7 +4,12 @@
        <ul>
          <li><%= link_to "Accueil", root_path %></li>
          <li><%= link_to "Aide", help_path %></li>
-         <li><%= link_to "S'identfier", signin_path %></li>
+         <% if signed_in? %>
+         	<li><%= link_to "Mon profil", current_user %>
+         	<li><%= link_to "Se deconnecter", signout_path, :method => :delete %></li>
+         <% else %>
+         	<li><%= link_to "S'identfier", signin_path %></li>
+       	 <% end %>
        </ul>
     </nav>
 </header>

@@ -8,6 +8,7 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  encrypted_password :string(255)
+#  salt               :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -28,14 +29,21 @@ class User < ActiveRecord::Base
   before_save :cryptage_password
 
 
-  def verif_password(mdp_soumis)
+  def verif_password?(mdp_soumis)
   	encrypted_password == cryptage(mdp_soumis)
   end
 
   def self.authenticate(email, password)
   	user = find_by_email(email)
   	return nil if user.nil? #true si utilisateur null, pas trouvé
-  	return user if user.verif_password(password) #true si mot de passe correspond
+  	return user if user.verif_password?(password) #true si mot de passe correspond
+  end
+
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    #return nil if user.nil?
+    #return user if(user.salt == cookie_salt)
+    (!user.nil? && user.salt == cookie_salt) ? user : nil
   end
 
   private
