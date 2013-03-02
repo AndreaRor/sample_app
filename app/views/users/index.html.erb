@@ -1,8 +1,8 @@
 <h1><%= @titre %></h1>
-<%= will_paginate %>	
+<!== <%= will_paginate %>
 	<ul class="users">
   		<% @users.each do |user| %>
     		<li><%= link_to user.nom, user %></li>
   		<% end %>
 	</ul>
-<%= will_paginate %>
+<!==<%= will_paginate %>

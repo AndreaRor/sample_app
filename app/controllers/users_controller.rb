@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   before_filter :correct_user, :only => [:edit, :update]
 
   def index
-    #@users = User.all
-    @users = User.paginate(:page => params[:page])
+    @users = User.all
+    #@users = User.paginate(:page => params[:page])
     @titre = "Liste des utilisateurs"
   end
 
