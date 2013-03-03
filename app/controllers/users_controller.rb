@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_filter :authenticate, :only => [:index, :edit, :update]
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :admin_user, :only => :destroy
 
   def index
     @users = User.all
@@ -39,6 +40,13 @@ class UsersController < ApplicationController
     end
   end 
 
+  def destroy 
+    userAsupp = User.find(params[:id])
+    userAsupp.destroy
+    flash[:success] = "#{userAsupp.nom} a ete supprime"
+    redirect_to users_path
+  end
+
   def show
   	@user = User.find(params[:id])
   	@titre = @user.nom
@@ -50,7 +58,7 @@ class UsersController < ApplicationController
   end
 
   def authenticate
-    deny_access unless signed_in?     # code unless condition  -> execute le code si condition == false
+    deny_access unless signed_in?     #code unless condition  -> execute le code si condition == false
   end
 
   def correct_user
@@ -59,6 +67,10 @@ class UsersController < ApplicationController
       flash[:error] = "Vous ne pouvez modifier que votre profil"
       redirect_to root_path
     end
-
   end
+
+  private
+    def admin_user
+       redirect_to(root_path) unless current_user.admin?
+    end
 end
