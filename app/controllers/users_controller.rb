@@ -49,16 +49,13 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @microposts = @user.microposts
   	@titre = @user.nom
   end
 
   def edit
     #@user = User.find(params[:id])     @user est défini par la fonction filtre correct_user
     @titre = "Editer profil"
-  end
-
-  def authenticate
-    deny_access unless signed_in?     #code unless condition  -> execute le code si condition == false
   end
 
   def correct_user

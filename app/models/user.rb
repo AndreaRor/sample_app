@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
   attr_accessible :nom, :email, :password, :password_confirmation	#liste des attributs accessible (getter,setter)
   attr_accessor :password	#attribut virtuel
 
+  has_many :microposts, :dependent => :destroy
+  default_scope :order => "users.nom ASC"     #SELECT trié par nom
+
+
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :nom, :presence => true,
@@ -28,7 +32,6 @@ class User < ActiveRecord::Base
   						:length => { :within => 4..6 }
 
   before_save :cryptage_password
-
 
   def verif_password?(mdp_soumis)
   	encrypted_password == cryptage(mdp_soumis)
@@ -45,6 +48,10 @@ class User < ActiveRecord::Base
     #return nil if user.nil?
     #return user if(user.salt == cookie_salt)
     (!user.nil? && user.salt == cookie_salt) ? user : nil
+  end
+
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   private

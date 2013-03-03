@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
   	@titre = "Accueil"
+    @micropost = Micropost.new if signed_in?
+    @feedList = Micropost.all(:limit => 10)
   end
 
   def contact

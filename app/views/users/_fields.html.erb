@@ -1,0 +1,17 @@
+  <%= render 'shared/error_messages', :object => f.object %>  <!== on passe au partiel l'objet du formulaire plutot que @user ==>
+  <div class="field">
+    <%= f.label :nom, "Nom" %><br />
+    <%= f.text_field :nom %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "eMail" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password, "Mot de passe" %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>

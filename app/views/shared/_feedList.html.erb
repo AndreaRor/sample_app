@@ -1,0 +1,8 @@
+<% if @feedList.any? %>
+  <h3>Les 10 derniers posts: </h3>
+     <ul>
+       <%= render @feedList %>
+     </ul>
+       <% else %>
+         <h3> Pas de post pour le moment. </h3>
+<% end %>

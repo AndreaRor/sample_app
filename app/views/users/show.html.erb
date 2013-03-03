@@ -6,6 +6,12 @@
 	<li>Nom : <%= @user.nom %></li>
 	<li>Email : <%= @user.email %></li>
 	<li>Admin : <%= @user.admin %></li>
-
+	<li>Messages : <%= @user.microposts.count %>
 </ul>
+<% if @user.microposts.any?%>
+	<h3>Messages de <%= @user.nom%></h3>
+	<ul>
+		<%= render @microposts %>
+	</ul>
+<% end %>
 <%= link_to "Editer mon profil", edit_user_path(@user) %>

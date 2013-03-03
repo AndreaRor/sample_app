@@ -1,14 +1,27 @@
 <h1>Application Tutoriel</h1>
 
-<p>
-  C'est la page d'accuile pour l'application exemple du
-  <a href="http://railstutorial.org/">Tutoriel Ruby on Rails</a>.
-</p>
-<% if !signed_in? %>
-<table class="table">
-<tr>
-	<td><%= link_to "Se connecter!", signin_path, :class => "signup_button round" %></td>
-	<td><%= link_to "S'inscrire!", signup_path, :class => "signup_button round" %></td>
-</tr>
-</table>
+<% if signed_in? %>
+  <table class="front" summary="Pour visiteur identifié">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">Quoi de neuf ?</h1>
+        <%= render 'shared/micropost_form' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= render "shared/feedList" %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+	<table class="table">
+	<tr>
+		<td><%= link_to "Se connecter!", signin_path, :class => "signup_button round" %></td>
+		<td><%= link_to "S'inscrire!", signup_path, :class => "signup_button round" %></td>
+	</tr>
+	</table>
 <% end %>

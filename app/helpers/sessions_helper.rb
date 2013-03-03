@@ -14,6 +14,10 @@ module SessionsHelper
     self.current_user = nil
   end
 
+  def authenticate
+    deny_access unless signed_in?     #code unless condition  -> execute le code si condition == false
+  end
+
   def current_user=(user)	#méthode d'assignement 
   	@current_user = user
   end
