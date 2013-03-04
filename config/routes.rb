@@ -4,9 +4,15 @@ SampleApp::Application.routes.draw do
 
   root :to => 'pages#home'  # || match '/', :to => '#pages#home'
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
+  resources :relationships, :only => [:create, :destroy]
+
 
   match '/home', :to => 'pages#home'
   match 'contact', :to => 'pages#contact'
