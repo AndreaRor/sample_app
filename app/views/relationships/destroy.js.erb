@@ -1,0 +1,2 @@
+$('#follow_form').replaceWith('<div id="follow_form"><%= escape_javascript(render('users/follow')) %></div>');
+$('#followers').replaceWith('<span id="followers" class="stat"><%= "#{@user.followers.count} lecteurs" %></span>');
