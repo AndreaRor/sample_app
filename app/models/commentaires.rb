@@ -12,4 +12,8 @@
 
 class Commentaires < ActiveRecord::Base
   attr_accessible :contenu
+
+  belongs_to :micropost
+
+  
 end

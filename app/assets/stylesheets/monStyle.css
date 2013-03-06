@@ -1,3 +1,7 @@
+.field input {
+  height: 20px;
+}
+
 ul.users {
   margin-top: 1em;
 }

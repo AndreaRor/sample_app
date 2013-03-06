@@ -8,11 +8,11 @@ class MicropostsController < ApplicationController
   	if @micropost.save
   		flash[:success] = "Micropost cree"
   		redirect_to root_path
- 	else
- 		@feedList = []
- 		flash.now[:error] = "Oups! Pas cree"
- 		render "pages/home"
- 	end
+ 	  else
+ 		  @feedList = []
+ 		  flash.now[:error] = "Oups! Pas cree"
+ 		  render "pages/home"
+ 	  end
   end
 
   def destroy
