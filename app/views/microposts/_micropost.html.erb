@@ -5,5 +5,5 @@
      									 :title => "Supprimer micropost" %>
      <% end %>
 	 <br/> 
-     Posté il y a <%= time_ago_in_words(micropost.created_at) %> par <%= User.find_by_id(micropost.user_id).nom %> 
+     Posté il y a <%= time_ago_in_words(micropost.created_at) %> par <%= User.find_by_id(micropost.user_id).nom %>
 </li>
