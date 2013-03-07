@@ -1,0 +1,9 @@
+<h5>Nouveau commentaire</h5>
+<%= form_for(@commentaire) do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :micropost_id, :value => @micropost.id %>
+	<%= f.label :contenu, "Votre commentaire" %>
+	<%= f.text_field :contenu, :size => 80 %>
+	<%= f.submit "Commenter!"%>
+<% end %>	

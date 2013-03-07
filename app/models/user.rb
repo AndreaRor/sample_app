@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
                                    :dependent => :destroy
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
-
   default_scope :order => "users.nom ASC"     #SELECT trié par nom
 
 
@@ -79,6 +78,9 @@ class User < ActiveRecord::Base
     Micropost.from_users_followed_by(self)
   end
 
+  def commentaires
+    Commentaire.where("user_id = ?", id)
+  end
 
 
   private

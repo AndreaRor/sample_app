@@ -1,0 +1,19 @@
+<% if @commentaires.any? %>
+	<h3>Commentaires de <%= @user.nom %></h3> 
+	<ul>	
+		<%= @commentaires.each do |commentaire| %>
+			<li>
+				<p>
+					<%= commentaire.contenu %>
+				</p>
+				<% if current_user.id == commentaire.user_id || current_user.admin? %>
+	    	 		<div class="boutMicropost">
+						<%= link_to "Delete", @commentaire, :method => :delete, :confirm => "Etes-vous sure?", :title => "Supprimer commentaire"%> 
+	    	 		</div>
+				<% end %>
+			</li>
+		<% end %>
+	</ul>
+<% else %>
+	<h3><%= link_to "#{@user.nom}", @user %> n'a pas encore laisse de commentaire</h3>
+<%end%>

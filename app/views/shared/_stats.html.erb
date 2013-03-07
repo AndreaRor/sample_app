@@ -6,16 +6,25 @@
         <a href="<%= following_user_path(@user) %>">
           <span id="following" class="stat">
           <%= pluralize(@user.following.count, "auteur suivi", "auteurs suivis") %>
-          </span>
-        </a>
+          </span> 
+        </a> |
       </td>
       <td>
         <a href="<%= followers_user_path(@user) %>">
           <span id="followers" class="stat">
             <%= pluralize(@user.followers.count, "lecteur") %>
-          </span>
-        </a>
+          </span> 
+        </a> 
       </td>
+       <% if current_user.id == @user.id %> 
+        <td>
+        |  <%= link_to "Mes commentaires" , "#{@user.id}/mescommentaires" %>
+        </td>
+       <% elsif current_user.admin? %> 
+        <td>
+        |  <%= link_to "Ses commentaires" , "#{@user.id}/mescommentaires" %>
+        </td>
+       <% end %>
     </tr>
   </table>
 </div>

@@ -25,5 +25,6 @@ SampleApp::Application.routes.draw do
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/users/:id/mescommentaires', :to => 'commentaires#mes_commentaires'
 
 end

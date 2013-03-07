@@ -1,0 +1,7 @@
+<% auteurComment = User.find(@commentaire.user_id)%>
+<li>
+	<p>"<%= @commentaire.contenu %>" <h7>de <%= link_to "#{auteurComment.nom}", root_path %></h7></p>  
+	<div class="boutMicropost">
+		<%= link_to "Delete", @commentaire, :method => :delete, :confirm => "Etes-vous sure?", :title => "Supprimer commentaire"%> 
+	</div>
+</li>

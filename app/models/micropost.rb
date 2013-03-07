@@ -13,7 +13,7 @@ class Micropost < ActiveRecord::Base
   attr_accessible :content
 
   belongs_to :user
-  has_many :commentaires
+  has_many :commentaires, :dependent => :destroy
 
   default_scope :order => "microposts.created_at DESC"
 

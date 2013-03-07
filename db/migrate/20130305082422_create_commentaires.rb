@@ -7,6 +7,7 @@ class CreateCommentaires < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :commentaires, :user_id
   end
   def self.down
   	drop_table :commentaires

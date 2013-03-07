@@ -1,8 +1,8 @@
 <% if @feedList.any? %>
   <h3>Post de vos auteurs suivis: </h3>
-     <ul>
-       <%= render @feedList %>
-     </ul>
-       <% else %>
+   <%= @feedList.each do |micropost| %>
+   		<%= render micropost %>
+   <% end %>
+<% else %>
          <h3> Pas de post pour le moment. </h3>
 <% end %>

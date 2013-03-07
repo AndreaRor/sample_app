@@ -1,3 +1,10 @@
+.boutMicropost a{
+  background-color: #DDBB5F;
+  border-radius: 7px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
 .field input {
   height: 20px;
 }
