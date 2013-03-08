@@ -2,7 +2,13 @@
 			  <strong>" <%= micropost.content %> "</strong>
 			  <% categorie = Categorie.find(micropost.categorie_id) %>
 			  <% user = User.find_by_id(micropost.user_id) %>
-     		  Posté il y a <%= time_ago_in_words(micropost.created_at) %> par <%= link_to "#{user.nom}", user %><br/>
+     		  Posté il y a <%= time_ago_in_words(micropost.created_at) %> par 
+     		  <% if current_user.id == micropost.user_id %>
+     		  	<%= link_to "Vous", user %>
+    	 	  <% else %>
+    	 	  	<%= link_to "#{user.nom}", user %>
+    	 	  <% end %>
+    	 	  <br/>
     	 	  Les autres posts de <%= link_to "#{categorie.nom}", "/#{categorie.nom}" %>
     	 	</p>
     	 	<div class="boutMicropost">
