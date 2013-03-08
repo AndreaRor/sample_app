@@ -10,10 +10,11 @@
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  admin              :boolean          default(FALSE)
+#  address            :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :nom, :email, :password, :password_confirmation	#liste des attributs accessible (getter,setter)
+  attr_accessible :nom, :address, :email, :password, :password_confirmation	#liste des attributs accessible (getter,setter)
   attr_accessor :password	#attribut virtuel
 
   has_many :microposts, :dependent => :destroy
@@ -38,6 +39,7 @@ class User < ActiveRecord::Base
   validates :password, :presence => true,
   						:confirmation => true,	#crée automatiquement l'attribut virtuel password_confirmation
   						:length => { :within => 4..6 }
+  validates :address, :presence => true
 
   before_save :cryptage_password
 

@@ -6,8 +6,9 @@
 <ul>
 	<li>Nom : <%= @user.nom %></li>
 	<li>Email : <%= @user.email %></li>
+	<li>Adresse : <%= @user.address %></li>
 	<li>Admin : <%= @user.admin %></li>
-	<li>Messages : <%= @user.microposts.count %>
+	<li>Messages : <%= @user.microposts.count %></li>
 </ul>
 <%= render "shared/stats" %>
 <% if @user.microposts.any?%>
