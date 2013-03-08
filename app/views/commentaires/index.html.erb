@@ -1,5 +1,5 @@
 <% auteurPost = User.find(@micropost.user_id) %>
-<h3><strong>"</strong><%= @micropost.content %><strong>"</strong></h3> de <%= link_to "#{auteurPost.nom}", auteurPost %>
+<h3><strong>"</strong><%= @micropost.content %><strong>"</strong></h3> de <%= link_to auteurPost.nom, auteurPost %>
 <p>
 	<% if @commentaires.any? %>
 		<h4>Les commentaires</h4>
