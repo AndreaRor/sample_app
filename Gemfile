@@ -14,6 +14,8 @@ gem 'rails', '3.2.9'
 gem 'sqlite3', :group => [:development, :test]
 
 group :production do
+  gem 'rspec-rails', '2.5.0'
+  gem 'annotate'
   gem 'thin'
   gem 'pg'
   gem 'faker', '0.3.1'
