@@ -1,7 +1,7 @@
 <% if @commentaires.any? %>
 	<h3>Commentaires de <%= @user.nom %></h3> 
 	<ul>	
-		<%= @commentaires.each do |commentaire| %>
+		<% @commentaires.each do |commentaire| %>
 			<li>
 				<p>
 					<%= commentaire.contenu %>

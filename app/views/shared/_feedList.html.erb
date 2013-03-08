@@ -1,6 +1,6 @@
 <% if @feedList.any? %>
   <h3>Post de vos auteurs suivis: </h3>
-   <%= @feedList.each do |micropost| %>
+   <% @feedList.each do |micropost| %>
    		<%= render micropost %>
    <% end %>
 <% else %>

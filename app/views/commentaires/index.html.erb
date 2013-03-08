@@ -3,7 +3,7 @@
 <p>
 	<% if @commentaires.any? %>
 		<h4>Les commentaires</h4>
-		<%= @commentaires.each do |commentaire| %>
+		<% @commentaires.each do |commentaire| %>
 			<% @commentaire = commentaire %>
 			<%= render 'commentaire_show' %>
 		<% end %>

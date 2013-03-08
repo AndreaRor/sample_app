@@ -5,6 +5,7 @@ class MicropostsController < ApplicationController
 
   def create
   	@micropost = current_user.microposts.build(params[:micropost])
+    puts "ID CAT #{@micropost.categorie_id}"
   	if @micropost.save
   		flash[:success] = "Micropost cree"
   		redirect_to root_path
@@ -19,6 +20,13 @@ class MicropostsController < ApplicationController
   	@micropost.destroy
   	flash[:success] = "Post supprime!"
   	redirect_to root_path
+  end
+
+  def post_par_categorie
+    @categorie = Categorie.find_by_nom(params[:categorie_nom])
+    @titre = "#{@categorie.nom}"
+    @microposts = Micropost.micropost_par_cat(@categorie)
+
   end
 
   private

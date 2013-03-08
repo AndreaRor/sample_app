@@ -26,5 +26,7 @@ SampleApp::Application.routes.draw do
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/users/:id/mescommentaires', :to => 'commentaires#mes_commentaires'
+  match '/:categorie_nom', :to => 'microposts#post_par_categorie'
+
 
 end

@@ -3,6 +3,16 @@
   <div class="field">
     <%= f.text_field :content, :size => 100 %>
   </div>
+  <table>
+  	<tr>
+  		<% Categorie.all.each do |categorie| %>
+  			<td>
+  				<%= f.radio_button :categorie_id, "#{categorie.id}"%>
+          <%= f.label "#{categorie.nom}" %>
+  			</td>
+  		<% end %>
+  	</tr>
+  </table>
   <div class="actions">
     <%= f.submit "Soumettre" %>
   </div>

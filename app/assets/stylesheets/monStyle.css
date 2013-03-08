@@ -1,8 +1,23 @@
+/*.boutEditProf {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+*/
+
+.boutEditProf a {
+  background-color: #D64857;
+  border-radius: 7px;
+  padding: 8px;
+}
+
+.boutMicropost {
+  margin-top: 5px;
+  margin-left: 10px;
+}
 .boutMicropost a{
   background-color: #DDBB5F;
   border-radius: 7px;
   padding: 5px;
-  margin-left: 10px;
 }
 
 .field input {

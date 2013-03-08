@@ -12,8 +12,11 @@
 <%= render "shared/stats" %>
 <% if @user.microposts.any?%>
 	<h3>Messages de <%= @user.nom%></h3>
-	<%= @microposts.each do |micropost| %>
+	<% @microposts.each do |micropost| %>
 		<%= render micropost %>		
 	<% end %>
 <% end %>
-<%= link_to "Editer mon profil", edit_user_path(@user) %>
+<br>
+<div class="boutEditProf">
+	<%= link_to "Editer mon profil", edit_user_path(@user) %>
+</div>

@@ -2,15 +2,16 @@
 #
 # Table name: microposts
 #
-#  id         :integer          not null, primary key
-#  content    :string(255)
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  content      :string(255)
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  categorie_id :integer
 #
 
 class Micropost < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :categorie_id
 
   belongs_to :user
   has_many :commentaires, :dependent => :destroy
@@ -20,9 +21,14 @@ class Micropost < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :content, :presence => true,
   					  :length => { :maximum => 150 }
+  validates :categorie_id, :presence => true
 
   def self.from_users_followed_by(user)
     followed_ids = user.following.map(&:id).join(", ")
     where("user_id IN (#{followed_ids}) OR user_id = ?", user)
+  end
+
+  def self.micropost_par_cat(categorie)
+    where("categorie_id = ?", categorie.id)
   end
 end

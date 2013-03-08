@@ -25,9 +25,18 @@ namespace :db do
     puts User.find_by_email(email).nom
     end
 
-    User.all(:limit => 6).each do |user|
-      50.times do 
-        user.microposts.create!(:content => Faker::Lorem.sentence(5))
+      Categorie.create(:nom => "Voiture")
+      Categorie.create(:nom => "Cuisine")
+      Categorie.create(:nom => "Culture")
+      Categorie.create(:nom => "Actualite")
+      Categorie.create(:nom => "Sport")
+      Categorie.create(:nom => "Poney")
+
+
+    User.all(:limit => 50).each do |user|
+      10.times do 
+        @post = user.microposts.create!(:content => Faker::Lorem.sentence(5), :categorie_id => Random.rand(1..6))
+        puts "#{@post.content} | #{Categorie.find(@post.categorie_id).nom}"
       end
     end
 
@@ -37,6 +46,7 @@ namespace :db do
       followers = users[3..40]
       following.each { |followed| user.follow!(followed) }
       followers.each { |follower| follower.follow!(user) }
+
 
   end
 end

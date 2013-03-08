@@ -1,0 +1,11 @@
+<h3>Posts de la catégorie <%= @categorie.nom %></h3>
+<% if @microposts.any? %>
+	<ul>
+		<% @microposts.each do |post| %>
+			<%= render post %>
+		<% end %>
+	</ul>
+<% else %>
+	<h5>Il n'y a pas encore de post pour cette catégorie</h5>
+	<%= link_to "Laisser un post?", root_path %>
+<% end %>

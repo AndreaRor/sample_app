@@ -1,14 +1,17 @@
-		<li><p><strong>" <%= micropost.content %> " </p></strong> 
-    	 		<div class="boutMicropost">
-	    	 		<% if micropost.user_id == current_user.id || current_user.admin? %>
-	    	 			<%= link_to "Delete", micropost, :method => :delete, 
-	     											 :confirm => "Supprimer votre post?", 
-	     											 :title => "Supprimer micropost" %> 
-	     			<% end %>
-	     			<%= link_to "Les commenaires (#{micropost.commentaires.count})", commentaires_path(:micropost_id => micropost.id) %>
-	     			<%= link_to "Commenter", new_commentaire_path(:micropost_id => micropost.id) %>
-	     		</div>
-	     	<br/> 
-	 		<% user = User.find_by_id(micropost.user_id) %>
-     		Posté il y a <%= time_ago_in_words(micropost.created_at) %> par <%= link_to "#{user.nom}", user %>
+		<li><p>
+			  <strong>" <%= micropost.content %> "</strong>
+			  <% categorie = Categorie.find(micropost.categorie_id) %>
+			  <% user = User.find_by_id(micropost.user_id) %>
+     		  Posté il y a <%= time_ago_in_words(micropost.created_at) %> par <%= link_to "#{user.nom}", user %><br/>
+    	 	  Les autres posts de <%= link_to "#{categorie.nom}", "/#{categorie.nom}" %>
+    	 	</p>
+    	 	<div class="boutMicropost">
+	    	  <% if micropost.user_id == current_user.id || current_user.admin? %>
+	    	 	<%= link_to "Delete", micropost, :method => :delete, 
+	     										 :confirm => "Supprimer votre post?", 
+	     										 :title => "Supprimer micropost" %> 
+	     	  <% end %>
+	     	  <%= link_to "Les commenaires (#{micropost.commentaires.count})", commentaires_path(:micropost_id => micropost.id) %>
+	     	  <%= link_to "Commenter", new_commentaire_path(:micropost_id => micropost.id) %>
+	     	</div>
 		</li>
