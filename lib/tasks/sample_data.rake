@@ -1,8 +1,8 @@
-require 'faker'
 
 namespace :db do
   desc "Peupler la base de donnees"
   task :populate => :environment do
+    require 'faker'
     Rake::Task['db:reset'].invoke
     User.create(:nom => "Andrea",
                  :email => "a@h.com",
