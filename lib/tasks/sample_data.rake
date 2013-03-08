@@ -35,8 +35,7 @@ namespace :db do
 
     User.all(:limit => 50).each do |user|
       10.times do 
-        @post = user.microposts.create!(:content => Faker::Lorem.sentence(5), :categorie_id => Random.rand(1..6))
-        puts "#{@post.content} | #{Categorie.find(@post.categorie_id).nom}"
+        @post = user.microposts.create!(:content => Faker::Lorem.sentence(5), :categorie_id => Random.rand(1..6).to_i)
       end
     end
 
