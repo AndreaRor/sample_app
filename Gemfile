@@ -13,6 +13,8 @@ gem 'rails', '3.2.9'
 #gem 'sqlite3'
 
 gem 'sqlite3', :group => [:development, :test]
+gem 'geocoder'
+
 
 group :production do
   gem 'rspec-rails', '2.5.0'

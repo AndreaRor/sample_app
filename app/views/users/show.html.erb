@@ -11,6 +11,7 @@
 	<li>Messages : <%= @user.microposts.count %></li>
 </ul>
 <%= render "shared/stats" %>
+<%= show_map(@user.address) %>
 <% if @user.microposts.any?%>
 	<h3>Messages de <%= @user.nom%></h3>
 	<% @microposts.each do |micropost| %>

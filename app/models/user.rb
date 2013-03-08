@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   attr_accessible :nom, :address, :email, :password, :password_confirmation	#liste des attributs accessible (getter,setter)
   attr_accessor :password	#attribut virtuel
 
+  geocoded_by :address
+
   has_many :microposts, :dependent => :destroy
   has_many :relationships, :foreign_key => "follower_id",
                            :dependent => :destroy
@@ -83,7 +85,6 @@ class User < ActiveRecord::Base
   def commentaires
     Commentaire.where("user_id = ?", id)
   end
-
 
   private
   	def cryptage_password
