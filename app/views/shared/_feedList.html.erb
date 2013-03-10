@@ -1,4 +1,4 @@
-<% if !@feedList.empty? %>
+<% if !@feedList.nil? && !@feedList.empty?  %>
   <h3>Post de vos auteurs suivis: </h3>
    <% @feedList.each do |micropost| %>
    		<%= render micropost %>
