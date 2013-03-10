@@ -15,7 +15,7 @@ module ApplicationHelper
 
 	def show_map(address)
 		geo_result = Geocoder.search(address)
-		image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{geo_result[0].latitude},#{geo_result[0].longitude}&zoom=13&size=1000x200&markers=color:blue%7C#{geo_result[0].latitude},#{geo_result[0].longitude}&sensor=false"
+		image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{geo_result[0].latitude},#{geo_result[0].longitude}&zoom=13&size=600x400&markers=color:blue%7C#{geo_result[0].latitude},#{geo_result[0].longitude}&sensor=false"
 	end
 
 end

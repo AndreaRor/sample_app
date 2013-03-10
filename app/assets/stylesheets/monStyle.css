@@ -4,10 +4,17 @@
 }
 */
 
-.boutEditProf a {
+#mapContainer {
+  width: 600px;
+  height: 400px;
+}
+
+.boutEditProf {
   background-color: #D64857;
   border-radius: 7px;
-  padding: 8px;
+  padding: 4px;
+  margin: 4px;
+  width: 50%;
 }
 
 .boutMicropost {

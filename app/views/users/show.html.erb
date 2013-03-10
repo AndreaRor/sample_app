@@ -11,7 +11,12 @@
 	<li>Messages : <%= @user.microposts.count %></li>
 </ul>
 <%= render "shared/stats" %>
-<%= show_map(@user.address) %>
+<div class="boutEditProf">
+	Google Map Dynamique: cliquer sur l'image
+</div>
+<div id="mapContainer">
+		<%= show_map(@user.address) %>
+</div>
 <% if @user.microposts.any?%>
 	<h3>Messages de <%= @user.nom%></h3>
 	<% @microposts.each do |micropost| %>

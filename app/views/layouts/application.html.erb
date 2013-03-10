@@ -1,9 +1,39 @@
 <!DOCTYPE html>
 <html>
+  <head>
     <title><%= titre %></title>
     <%= csrf_meta_tag %>   
     <%= render 'layouts/stylesheets' %>
     <%= javascript_include_tag "application" %> 
+
+    <% #google map api %> 
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZiDoed7v6rc5lXXH2h3gt9-pvC3hKwwY&sensor=false">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+        $('#mapContainer').onload(initialize());
+
+        function initialize() {
+          var mapOptions = {
+            center: new google.maps.LatLng(-34.397, 150.644),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          };
+          //setTimeout(function(){
+          $('#mapContainer').click(function() {
+            var elmtImg = $(this).children('img');
+            elmtImg.fadeOut();
+            elmtImg.remove();
+            var map = new google.maps.Map(document.getElementById('mapContainer'), mapOptions);
+            $(this).off();
+          });//, 2000);
+        }
+      });
+    </script>
+    <% # javascript_include_tag "googlemap" %>
   </head>
   <body>
     <div class="container">
