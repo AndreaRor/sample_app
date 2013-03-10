@@ -1,4 +1,5 @@
 module ApplicationHelper
+
 	def titre
 		titre_base = "Page"
 		if @titre.nil?
@@ -13,9 +14,7 @@ module ApplicationHelper
 		logo
 	end 
 
-	def show_map(address)
-		geo_result = Geocoder.search(address)
-		image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{geo_result[0].latitude},#{geo_result[0].longitude}&zoom=13&size=600x400&markers=color:blue%7C#{geo_result[0].latitude},#{geo_result[0].longitude}&sensor=false"
+	def show_map(coordinates)
+		image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{coordinates[:latitude]},#{coordinates[:longitude]}&zoom=13&size=600x400&markers=color:blue%7C#{coordinates[:latitude]},#{coordinates[:longitude]}&sensor=false"
 	end
-
 end

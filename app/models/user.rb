@@ -62,10 +62,6 @@ class User < ActiveRecord::Base
     (!user.nil? && user.salt == cookie_salt) ? user : nil
   end
 
-  def feed
-    Micropost.where("user_id = ?", id)
-  end
-
   def following?(followed)
     relationships.find_by_followed_id(followed)
   end
@@ -82,8 +78,18 @@ class User < ActiveRecord::Base
     Micropost.from_users_followed_by(self)
   end
 
+  #def feed
+  #  Micropost.where("user_id = ?", id)
+  #end
+
   def commentaires
     Commentaire.where("user_id = ?", id)
+  end
+
+  def get_coordinates
+    geo_result = Geocoder.search(self.address)
+    coordinates = { :latitude => geo_result[0].latitude, :longitude => geo_result[0].longitude}
+    return coordinates
   end
 
   private

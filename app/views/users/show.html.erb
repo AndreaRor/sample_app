@@ -14,9 +14,12 @@
 <div class="boutEditProf">
 	Google Map Dynamique: cliquer sur l'image
 </div>
-<div id="mapContainer">
-		<%= show_map(@user.address) %>
-</div>
+
+<% #passer data au javascript %>
+<%= content_tag "div", id: "mapContainer", data: @user.get_coordinates do %>
+		<%= show_map(@user.get_coordinates) %>
+<% end %>
+
 <% if @user.microposts.any?%>
 	<h3>Messages de <%= @user.nom%></h3>
 	<% @microposts.each do |micropost| %>
