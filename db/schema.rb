@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20130308142010) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "categories", ["nom"], :name => "index_categories_on_nom"
+
   create_table "commentaires", :force => true do |t|
     t.string   "contenu"
     t.integer  "user_id"
@@ -26,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20130308142010) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "commentaires", ["user_id"], :name => "index_commentaires_on_user_id"
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

@@ -12,17 +12,15 @@ gem 'rails', '3.2.9'
 
 #gem 'sqlite3'
 
-gem 'sqlite3', :group => [:development, :test]
 gem 'geocoder'
 gem 'gmaps4rails'
 gem "twitter-bootstrap-rails"
-
+gem 'pg'
 
 group :production do
   gem 'rspec-rails', '2.5.0'
   gem 'annotate'
   gem 'thin'
-  gem 'pg'
   gem 'faker', '0.3.1'
 end
 
