@@ -15,7 +15,6 @@ gem 'rails', '3.2.9'
 gem 'sqlite3', :group => [:development, :test]
 gem 'geocoder'
 gem 'gmaps4rails'
-gem "twitter-bootstrap-rails"
 
 
 group :production do
@@ -37,6 +36,8 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem "twitter-bootstrap-rails"
+
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -45,8 +46,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'gravatar_image_tag', '1.0.0.pre2'
+gem 'twitter_bootstrap_form_for'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
