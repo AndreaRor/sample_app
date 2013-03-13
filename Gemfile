@@ -14,12 +14,7 @@ gem 'rails', '3.2.9'
 
 gem 'geocoder'
 gem 'gmaps4rails'
-<<<<<<< HEAD
-gem "twitter-bootstrap-rails"
 gem 'pg'
-=======
-
->>>>>>> formTwitBootstrap
 
 group :production do
   gem 'rspec-rails', '2.5.0'
