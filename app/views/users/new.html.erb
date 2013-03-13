@@ -1,7 +1,15 @@
-<h1><%= @titre %></h1>
-<%= form_for(@user) do |f| %>
-  <%= render "fields", :f => f %>
-  <div class="actions">
-    <%= f.submit "Inscription" %>
-  </div>
+<%# http://railscasts.com/episodes/328-twitter-bootstrap-basics?view=asciicast %>
+
+<%= twitter_bootstrap_form_for @user do |user| %>
+  <%= user.inputs @titre, :class => 'sign_up' do %>
+    <%= user.text_field :nom, "Nom", :placeholder => "Jean-jacques" %>
+    <%= user.email_field :email, "Email", :placeholder => 'me@example.com' %>
+    <%= user.text_field :address,  "Adresse", :placeholder => "Rue du Boulanger ,6, Bruxelles Belgique" %>
+    <%= user.password_field :password, "Mot de passe", :placeholder => "Votre password" %>
+    <%= user.password_field :password_confirmation, "Confirmer mot de passe ", :placeholder => "Confirmer votre password" %>
+    <%= user.actions do %>
+      <%= user.submit 'Sign up' %>
+      <%= button_tag  'Cancel', :type => 'reset', :class => 'btn' %>
+    <% end %>
+  <% end %>
 <% end %>
